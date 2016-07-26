@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Битва{% endblock %}
+
+{% block content %}
+<form method="post" action="">
+    {% csrf_token %}
+    <h2>Битва</h2>
+    <br>
+    <p>Общее количество солдат и машин от 5 до 10: </p>
+
+    <!--можно и так
+    <input type="text" name="soldiers" id="soldiers" placeholder="Солдаты..." required="">
+    <input type="text" name="vehicles" id="vehicles" placeholder="Машины..." required="">
+    <br>
+    <label for="squads_number">Количество отрядов в армии (2 и более): </label>
+    <input type="text" name="squads_number" id="squads_number" required="">
+    <br>
+    <label for="armies_number">Количество армий (2 и более): </label>
+    <input type="text" name="armies_number" id="armies_number" required="">
+    <br>
+    <label for="strategy">Стратегия: </label>
+    <select name="strategy" id="strategy" required="">
+        <option>random</option>
+        <option>weakest</option>
+        <option>strongest</option>
+    </select>
+    -->
+
+    {{ form.soldiers }}
+    {{ form.vehicles }} <br>
+    <label for="{{ form.squads_number.id_for_label }}">Количество отрядов в армии (2 и более): </label>
+    {{ form.squads_number }}<br>
+    <label for="{{ form.armies_number.id_for_label }}">Количество армий (2 и более): </label>
+    {{ form.armies_number }}<br>
+    <label for="{{ form.strategy.id_for_label }}">Стратегия: </label>
+    {{ form.strategy }}
+
+
+    <br><br>
+    <input type="submit" value="Старт" name="start" id="start">
+</form>
+{% endblock %}
